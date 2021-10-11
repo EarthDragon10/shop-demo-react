@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useReducer, createContext } from "react";
 import Basket from "./Basket";
 import Books from "./Books";
 import Navigation from "./Navigation";
@@ -19,6 +19,8 @@ function reducer(state, action) {
 
 }
 
+export const AppContext = createContext();
+
 function App() {
 
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
@@ -26,9 +28,12 @@ function App() {
   
   return (
     <div className='App'>
-      <Navigation dispatch={dispatch} state={state} />
-      <Books />
-      <Basket dispatch={dispatch} state={state}/>
+      <AppContext.Provider>
+        <Navigation dispatch={dispatch} state={state} />
+        <Books />
+        <Basket dispatch={dispatch} state={state}/>
+      </AppContext.Provider>
+      
     </div>
   );
 }
