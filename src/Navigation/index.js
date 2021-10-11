@@ -13,7 +13,7 @@ export default function Navigation(props) {
           item
           xs={4}
           sx={{ display: "flex", cursor: "pointer" }}
-          onClick={() => props.dispatch({ type: "OPENED" })}
+          onClick={() => props.dispatch({ type: "TOGGLE" })}
         >
           <Typography
             variant='button'

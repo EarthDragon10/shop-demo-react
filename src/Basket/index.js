@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
 
 
-export default function Basket({ opened, dispatch, state }) {
+export default function Basket({ dispatch, state }) {
 
   return (
     <Box
@@ -33,7 +33,7 @@ export default function Basket({ opened, dispatch, state }) {
       <Box sx={{ position: "relative" }}>
         <CloseIcon
           sx={{ position: "absolute", top: 0, right: 0, cursor: "pointer" }}
-          onClick={() => dispatch({ type: "CLOSED"})}
+          onClick={() => dispatch({ type: "TOGGLE"})}
         />
         <Typography variant='button' component='div'>
           Your items
