@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Typography,
@@ -11,10 +11,12 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import { AppContext } from "../App"
 
+export default function Basket() {
 
-export default function Basket({ dispatch, state }) {
-
+  const [state, dispatch] = useContext(AppContext);
+  
   return (
     <Box
       sx={{

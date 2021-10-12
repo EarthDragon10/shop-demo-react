@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Typography, Badge, Container, Grid } from "@mui/material";
+import { AppContext } from "../App"
 
-export default function Navigation(props) {
+export default function Navigation() {
 
-  
+  const [, dispatch] = useContext(AppContext);
 
   return (
     <Container fixed sx={{ mt: 4 }}>
@@ -13,7 +14,7 @@ export default function Navigation(props) {
           item
           xs={4}
           sx={{ display: "flex", cursor: "pointer" }}
-          onClick={() => props.dispatch({ type: "TOGGLE" })}
+          onClick={() => dispatch({ type: "TOGGLE" })}
         >
           <Typography
             variant='button'
