@@ -28,10 +28,10 @@ function App() {
   
   return (
     <div className='App'>
-      <AppContext.Provider>
-        <Navigation dispatch={dispatch} state={state} />
+      <AppContext.Provider value={[state, dispatch]}>
+        <Navigation />
         <Books />
-        <Basket dispatch={dispatch} state={state}/>
+        <Basket />
       </AppContext.Provider>
       
     </div>
