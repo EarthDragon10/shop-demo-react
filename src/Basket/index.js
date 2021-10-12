@@ -16,7 +16,7 @@ import { AppContext } from "../App"
 export default function Basket() {
 
   const [state, dispatch] = useContext(AppContext);
-  
+
   return (
     <Box
       sx={{
@@ -28,7 +28,7 @@ export default function Basket() {
         left: 0,
         padding: "30px",
         color: "white",
-        transform: state.opened ? "translateX(0)" : "translateX(-100%)",
+        transform: state.basket.opened ? "translateX(0)" : "translateX(-100%)",
         transition: "all 0.3s ease",
       }}
     >
