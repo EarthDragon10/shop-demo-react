@@ -12,17 +12,18 @@ const INITIAL_STATE = {
     opened: false,
   },
   filters: {
-    filteredBooks: [],
+    filteredBooks: books,
     word: "",
     category: "All",
   },
   books: {
-    books,
+  
     categories: ["All", "Design", "Mobile", "Ux", "DevOps", "Essentials"],
   },
 };
 
 function reducer(state, action) {
+  console.log(action)
 
   switch(action.type) {
 
@@ -37,9 +38,10 @@ function reducer(state, action) {
         ...state,
         filters: {
           ...state.filters,
-          filteredBooks: state.filters.categories === "All"
-          ? state.books.books
-          : state.books.books.filter((book) => book.category === state.filters.categories),
+          category: action.payload,
+          filteredBooks: action.payload === "All"
+         ? books
+          : books.filter((book) => book.category === action.payload),
           
         }
       }
@@ -56,7 +58,7 @@ export const AppContext = createContext();
 function App() {
 
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  // console.log("state", state);
+  console.log("state", state);
   
   return (
     <div className='App'>
