@@ -5,7 +5,8 @@ import { AppContext } from "../App"
 
 export default function Navigation() {
 
-  const [, dispatch] = useContext(AppContext);
+  const [ state, dispatch] = useContext(AppContext);
+  console.log(state);
 
   return (
     <Container fixed sx={{ mt: 4 }}>

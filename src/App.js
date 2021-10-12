@@ -13,15 +13,25 @@ const INITIAL_STATE = {
     opened: false,
   },
   filters: {
+    filteredBooks: [],
     word: "",
     category: "All",
   },
   books: {
-    books,
+    books: books,
     categories: ["All", "Design", "Mobile", "Ux", "DevOps", "Essentials"],
   },
 
  };
+
+ // const selectFilter = (filter) => {
+  //   setSelectedFilter(filter);
+  //   setBooks(
+  //     filter === "All"
+  //       ? booksMock
+  //       : booksMock.filter((book) => book.category === filter)
+  //   );
+  // };
 
 function reducer(state, action) {
 
@@ -33,19 +43,27 @@ function reducer(state, action) {
         basket: { ...state.basket, opened: !state.basket.opened}
       };
     
+    case "FILTER":
+      return {
+        ...state,
+        filters: {
+          filteredBooks: this.books.categories === "All"
+            ? books 
+            : books.filter((book) => book.category === this.state.books.categories)
+        }
+      }
     default:
       return state;
 
   }
 
-}
+} 
 
 export const AppContext = createContext();
 
 function App() {
 
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  console.log("state", state);
   
   return (
     <div className='App'>

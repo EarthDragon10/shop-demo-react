@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Stack, Paper, Chip } from "@mui/material";
 import SearchBar from "./SearchBar";
+import { AppContext } from "../../App"
 
-const filters = ["All", "Design", "Mobile", "Ux", "DevOps", "Essentials"];
+export default function Filters() {
 
-export default function Filters({ selectedFilter, selectFilter }) {
+  const [state, dispatch] = useContext(AppContext);
+
   return (
     <>
       <Stack direction='row' spacing={2} sx={{ my: 5 }}>
         <SearchBar />
       </Stack>
       <Stack direction='row' spacing={2} sx={{ my: 5 }}>
-        {filters?.map((filter) => (
+        {/* {filters?.map((filter) => (
           <Chip
             key={filter}
             label={filter}
@@ -19,7 +21,7 @@ export default function Filters({ selectedFilter, selectFilter }) {
             onClick={() => selectFilter(filter)}
             variant={selectedFilter === filter ? "filled" : "outlined"}
           />
-        ))}
+        ))} */}
       </Stack>
     </>
   );
