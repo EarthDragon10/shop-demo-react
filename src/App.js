@@ -44,6 +44,15 @@ function reducer(state, action) {
           : books.filter((book) => book.category === action.payload),
           
         }
+      };
+    
+    case "ONCHANGE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          word: action.payload,
+        }
       }
     
     default:

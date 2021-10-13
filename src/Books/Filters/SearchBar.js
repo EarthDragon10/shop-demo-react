@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Input, InputLabel, InputAdornment, FormControl } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { AppContext } from "../../App"
 
 export default function SearchBar() {
+
+  const [, dispatch] = useContext(AppContext);
   return (
     <FormControl variant='standard' className='custom-input'>
       <InputLabel htmlFor='input-with-icon-adornment'>Search a book</InputLabel>
@@ -14,7 +17,7 @@ export default function SearchBar() {
             <SearchIcon />
           </InputAdornment>
         }
-        onChange={() => console.log("prova")}
+        onChange={(event) => dispatch({ type: "ONCHANGE", payload: event.target.value})}
       />
     </FormControl>
   );
