@@ -7,10 +7,10 @@ const filters = ["All", "Design", "Mobile", "Ux", "DevOps", "Essentials"];
 export default function Filters({ selectedFilter, selectFilter }) {
   return (
     <>
-      <Stack direction='row' spacing={2} sx={{ my: 5 }}>
+      <Stack direction="row" spacing={2} sx={{ my: 5 }}>
         <SearchBar />
       </Stack>
-      <Stack direction='row' spacing={2} sx={{ my: 5 }}>
+      <Stack direction="row" spacing={2} sx={{ my: 5 }}>
         {filters?.map((filter) => (
           <Chip
             key={filter}
